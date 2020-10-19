@@ -16,7 +16,7 @@ MyID    = 627107225109790730
 bfWiki  = "https://en.wikipedia.org/wiki/Brainfuck"
 bfengi  = "https://github.com/DismissedGuy/brainfuck-interpreter"
 
-os.chdir('bot')
+os.chdir('./')
 print('current working direcotry:\n'+os.getcwd())
 
 bot = commands.Bot(command_prefix='//')  # bot prefix
