@@ -61,7 +61,7 @@ class MathModule(commands.Cog):
                 # dataIn =
                 await self.RetrieveImage(code)
                 embed = discord.Embed(
-                    title='here is your output: []',
+                    title='here is your output:',
                     colour=discord.Colour(Colour)
                 )
                 try:
