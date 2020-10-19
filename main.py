@@ -82,8 +82,10 @@ Token = file.read()
 print('token: ' + Token)
 # bot.run(Token)
 """
-with open('../data.json') as json_file:
+with open('data.json') as json_file:
     data = json.load(json_file)
+    bot.run(data['token'])
+
     bot.run(data['token'])
     
     
