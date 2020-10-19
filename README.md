@@ -1,0 +1,3 @@
+# gen-purp-discord-bot-001
+========
+not many features right now...

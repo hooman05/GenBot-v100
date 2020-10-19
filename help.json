@@ -1,0 +1,34 @@
+{
+  "title": "Command Help Sheet.",
+  "description": "heres some help on what i can do. more commands will be added as time goes on.\ncurrently my prefix is `< // >`, this may become changeable in the future",
+  "color": 50441,
+  "fields":
+  [
+    {
+      "name": "Miscilanous",
+      "value": "random commands to play with.\n\n"
+    },
+    {
+      "name": "brainf",
+      "value": "Evaluates brainfuck code. ```md\n//brainf <code>```"
+    },
+    {
+      "name": "brainfhelp:",
+      "value": "runs brainfuck code.```md\n//brainfhelp```"
+    },
+
+    {
+      "name": "Moderation",
+      "value": "moderation commands may require permissions to use them.\n\n"
+    },
+    {
+      "name": "purge",
+      "value": "deletes messages. ```md\n//purge <messages_to_delete>```requires `manage_messages` permission."
+    },
+
+    {
+      "name": "tex",
+      "value": "renders tex code. ```md\n//tex <complexity> <code>```"
+    }
+  ]
+}

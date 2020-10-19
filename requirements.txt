@@ -1,0 +1,7 @@
+Pillow
+discord.py
+asyncio
+requests
+brainfuck-interpreter
+imageio
+aiofiles

@@ -1,0 +1,61 @@
+"""========= TEX RENDERING COMMAND ==========="""
+
+RenderingServer = "http://rtex.probablyaweb.site/api/v2"
+
+async def RetrieveImage(InputCode):
+    payload = {
+        'code': InputCode,
+        'format': 'png',
+        'quality': 50,
+        'density': 300
+    }
+    async with aiohttp.ClientSession() as session:
+        async with session.post(RenderingServer, json=payload) as location:
+            location.raise_for_status()
+            data = await location.json()
+            # print(data['log'])
+            if data['status'] == 'error':
+                print(data['log'])
+                data['log'] = '...'
+                print(data)
+                print('Something happend')
+                filename = 'https://raw.githubusercontent.com/hooman05/ImageDump/master/Error.png'
+
+            elif data['status'] == 'success':
+                filename = RenderingServer + '/' + data['filename']
+            # print('recieved json data')
+            # print('sending get request to [' + RenderingServer + '] for the file: ' + filename)
+        async with session.get(filename, timeout=3) as GetImage:
+            GetImage.raise_for_status()
+            # print('success')
+            # print('getting data back')
+            if GetImage.status == 200:
+                bucket = await aiofiles.open('./tmp/RenderdImage.png', mode='wb')
+                # print('writing data')
+                await bucket.write(await GetImage.read())
+                await bucket.close()
+
+@bot.command()
+async def tex(ctx, *, texcode):
+    await ctx.send('please wait while i process the request...')
+    async with ctx.message.channel.typing():
+        # temporary
+        code = r'\documentclass{article}\usepackage{xcolor}\begin{document}\color{white}' + texcode + r'\pagenumbering{gobble}\end{document}'
+        await RetrieveImage(code)
+        embed = discord.Embed(
+            title="Here is your output",
+            colour=discord.Colour(0xa72e1),
+            description='''
+                {} |\n this bot uses this [tex rendering service](https://rtex.probablyaweb.site) to render the output.'''.format(ctx.message.author.mention)
+        )
+        try:
+            image = discord.File("./tmp/RenderdImage.png", "rtex.png")
+            embed.set_image(url="attachment://rtex.png")
+
+        except FileNotFoundError:
+            image = discord.File("./tmp/Error.png", "err.png")
+            embed.set_image(url="attachment://err.png")
+        await ctx.channel.purge(limit=1)
+        await ctx.send(file=image, embed=embed)
+
+'''================== TEX END ================='''
