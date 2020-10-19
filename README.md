@@ -1,4 +1,4 @@
-# gen-purp-discord-bot-001
+# GenBot discord bot
 
 not many features right now...
 
