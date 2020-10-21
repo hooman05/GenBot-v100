@@ -33,7 +33,7 @@ for filename in os.listdir('./cogs'):
 @bot.event
 async def on_ready():
     print('main booted!')
-    print('starting cogs...\n===============================')
+    print('Branch: master\nstarting cogs...\n===============================')
 """========== FINISHED ==========="""
 
 # load and unload cogs
