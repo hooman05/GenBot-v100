@@ -30,6 +30,7 @@ class PistonAPI(commands.Cog):
         self.bot = bot
 
     async def APIrequest(self, Input):
+        pass
 
     @commands.command()
     async def run(self, ctx):
