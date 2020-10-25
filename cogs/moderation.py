@@ -15,7 +15,7 @@ class Moderation(commands.Cog):
 
     @commands.Cog.listener()
     async def on_ready(self):
-        print('mooderation ------ online')
+        print('moderation ------- online')
 
     @commands.command()
     @has_permissions(manage_messages=True)

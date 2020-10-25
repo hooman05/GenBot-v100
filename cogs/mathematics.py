@@ -23,7 +23,7 @@ class MathModule(commands.Cog):
             'quality': 50,
             'density': 300
         }
-        print(payload)
+        # print(payload)
         async with aiohttp.ClientSession() as session:
             async with session.post(RenderingServer, json=payload) as request:
                 request.raise_for_status()
@@ -31,7 +31,7 @@ class MathModule(commands.Cog):
                 if data['status'] == 'error':
                     # print(data['log'])
                     data['log'] = '...'
-                    print(data)
+                    # print(data)
                     # print('Something happend')
                     filelink = 'https://raw.githubusercontent.com/hooman05/ImageDump/master/Error.png'
 
@@ -74,9 +74,9 @@ class MathModule(commands.Cog):
 
             elif advancedopt == 'easy':
                 simpleCode = DocStart + code + DocEnd
-                print("\n===============================")
-                print(simpleCode)
-                print("===============================")
+                # print("\n===============================")
+                # print(simpleCode)
+                # print("===============================")
                 await self.RetrieveImage(simpleCode)
                 embed = discord.Embed(
                     title="here is your output:",

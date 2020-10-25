@@ -64,7 +64,7 @@ async def pingmain(ctx):
 async def brainf(ctx, *, code):
     output = brainfuck.evaluate(code)
     embed  = Embed(title="Here is your result", color=0x00e1ff)
-    embed.add_field(name="the output of your code is:", value=output, inline=False)
+    embed.add_field(name="the output of your code is:", value=f"```{output}```", inline=False)
     embed.add_field(name="the input code was:", value="```"+code+"```", inline=False)
     embed.set_footer(text="requested by <@{}>".format(ctx.message.author.id))
     await ctx.send(embed=embed)
@@ -75,7 +75,7 @@ async def brainfhelp(ctx):
     embed.add_field(name="try checking the wiki:",           value=f"[Brainf wiki]({bfWiki})",          inline=False)
     embed.add_field(name="enterpreter engine github page:",  value=f"[Go to github page]({bfengi})",    inline=False)
     await ctx.send(embed=embed)
-    
+
 """
 file = open('./token.txt', 'r')
 Token = file.read()
@@ -87,5 +87,3 @@ with open('data.json') as json_file:
     bot.run(data['token'])
 
     bot.run(data['token'])
-    
-    
